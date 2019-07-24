@@ -14,9 +14,6 @@ namespace ConsoleApp6
             var expression = Console.ReadLine();
             Console.WriteLine(Calculator.GetReversePolishNotation(expression));
             var a = Calculator.Calculate(expression);
-           
-            Console.WriteLine(a);
-            Console.Write(float.MaxValue);
         }
     }
 }

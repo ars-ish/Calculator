@@ -118,11 +118,5 @@ namespace ConsoleApp6
         {
             Assert.AreEqual(3, Calculator.Calculate(" 1   + 2  "));
         }
-
-        [Test]
-        public void x()
-        {
-            Assert.AreEqual(3, Calculator.Calculate("((1+2)^1)*3"));
-        }
     }
 }
