@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using CalculatorLibrary;
 
-namespace ConsoleApp6
+namespace CansoleCalc
 {
     [TestFixture]
     class TestCase

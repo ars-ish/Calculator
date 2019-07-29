@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CalculatorLibrary;
 
-namespace ConsoleApp6
+namespace CansoleCalc
 {
     class Program
     {
