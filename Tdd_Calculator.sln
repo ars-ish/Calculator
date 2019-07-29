@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCalc", "ConsoleApp6\ConsoleCalc.csproj", "{C4970572-B507-4B5A-B29A-824591E4A3EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.CLI", "Calculator.Console\Calculator.Console.csproj", "{C4970572-B507-4B5A-B29A-824591E4A3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "Calculator\CalculatorLibrary.csproj", "{9BBFFBE3-8D31-4D16-9D2E-E1B4C87DD085}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Library", "Calculator.Library\Calculator.Library.csproj", "{9BBFFBE3-8D31-4D16-9D2E-E1B4C87DD085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTest", "ClassLibrary1\CalculatorTest.csproj", "{FB68052A-1076-441F-8946-3BE89164D5DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Test", "Calculator.Test\Calculator.Test.csproj", "{FB68052A-1076-441F-8946-3BE89164D5DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

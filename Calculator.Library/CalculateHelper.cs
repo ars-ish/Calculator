@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CalculatorLibrary
+namespace Calculator.Library
 {
-    public class Calculator
+    public static class CalculateHelper
     {
         private static int GetPriority(char oper)
         {

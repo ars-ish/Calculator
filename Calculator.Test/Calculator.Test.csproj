@@ -8,8 +8,8 @@
     <ProjectGuid>{FB68052A-1076-441F-8946-3BE89164D5DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>Calculator.Test</RootNamespace>
+    <AssemblyName>Calculator.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CalculateHelper_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Calculator\CalculatorLibrary.csproj">
+    <ProjectReference Include="..\Calculator.Library\Calculator.Library.csproj">
       <Project>{9bbffbe3-8d31-4d16-9d2e-e1b4c87dd085}</Project>
-      <Name>CalculatorLibrary</Name>
+      <Name>Calculator.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
