@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C4970572-B507-4B5A-B29A-824591E4A3EC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp6</RootNamespace>
-    <AssemblyName>ConsoleApp6</AssemblyName>
+    <RootNamespace>Calculator.Console</RootNamespace>
+    <AssemblyName>Calculator.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Calculator\CalculatorLibrary.csproj">
+    <ProjectReference Include="..\Calculator\Calculator.Library.csproj">
       <Project>{9bbffbe3-8d31-4d16-9d2e-e1b4c87dd085}</Project>
-      <Name>CalculatorLibrary</Name>
+      <Name>Calculator.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

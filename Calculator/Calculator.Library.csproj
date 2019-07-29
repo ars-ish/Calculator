@@ -7,8 +7,8 @@
     <ProjectGuid>{9BBFFBE3-8D31-4D16-9D2E-E1B4C87DD085}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Calculator</RootNamespace>
-    <AssemblyName>Calculator</AssemblyName>
+    <RootNamespace>Calculator.Library</RootNamespace>
+    <AssemblyName>Calculator.Library</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
