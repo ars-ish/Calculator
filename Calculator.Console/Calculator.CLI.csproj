@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C4970572-B507-4B5A-B29A-824591E4A3EC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Calculator.Console</RootNamespace>
-    <AssemblyName>Calculator.Console</AssemblyName>
+    <RootNamespace>Calculator.CLI</RootNamespace>
+    <AssemblyName>Calculator.CLI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

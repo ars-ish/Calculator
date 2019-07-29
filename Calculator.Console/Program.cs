@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CalculatorLibrary;
+using Calculator.Library;
 
-namespace CansoleCalc
+namespace Calculator.CLI
 {
     class Program
     {
         static void Main(string[] args)
         {
             var expression = Console.ReadLine();
-            Console.WriteLine(Calculator.GetReversePolishNotation(expression));
-            var a = Calculator.Calculate(expression);
+            Console.WriteLine(CalculateHelper.GetReversePolishNotation(expression));
+            var a = CalculateHelper.Calculate(expression);
         }
     }
 }
