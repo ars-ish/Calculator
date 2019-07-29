@@ -13,7 +13,8 @@ namespace Calculator.CLI
         {
             var expression = Console.ReadLine();
             Console.WriteLine(CalculateHelper.GetReversePolishNotation(expression));
-            var a = CalculateHelper.Calculate(expression);
+            var result = CalculateHelper.Calculate(expression);
+            Console.WriteLine(result);
         }
     }
 }
