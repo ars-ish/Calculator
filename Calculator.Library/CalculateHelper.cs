@@ -6,9 +6,9 @@ namespace Calculator.Library
 {
     public static class CalculateHelper
     {
-        private static int GetPriority(char oper)
+        private static int GetPriority(char operation)
         {
-            switch (oper)
+            switch (operation)
             {
                 case '(': return 0;
                 case ')': return 1;
