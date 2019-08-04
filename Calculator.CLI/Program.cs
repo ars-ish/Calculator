@@ -11,10 +11,16 @@ namespace Calculator.CLI
     {
         static void Main(string[] args)
         {
-            var expression = Console.ReadLine();
-            Console.WriteLine(CalculateHelper.GetReversePolishNotation(expression));
-            var result = CalculateHelper.Calculate(expression);
-            Console.WriteLine(result);
+            while (true)
+            {
+                var expression = Console.ReadLine();
+                var result = CalculateHelper.Calculate(expression);
+
+                if (result.IsSuccess())
+                    Console.WriteLine(result.Result);
+                else
+                    Console.WriteLine(result.Error);
+            }
         }
     }
 }

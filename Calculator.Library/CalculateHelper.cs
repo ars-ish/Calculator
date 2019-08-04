@@ -26,14 +26,13 @@ namespace Calculator.Library
             return ("()+-*/^".Contains(symbol));
         }
 
-        public static string GetReversePolishNotation(string input)
+        public static bool TryGetReversePolishNotation(string input, out string result, out string error)
         {
-            input = input.Trim(' ').Replace(',', '.');
+            input = input.Replace(',', '.').Trim(' ');
 
             var operStack = new Stack<char>();
-            var result = "";
-
             var isPreviousSignOperator = true;
+            result = "";
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -55,21 +54,20 @@ namespace Calculator.Library
                     }
 
                     result += " ";
-
                     if (input[i] == '(')
                         operStack.Push(input[i]);
                     else if (input[i] == ')')
                     {
-                        var stack = operStack.Pop();
-                        while (stack != '(')
+                        var oper = operStack.Pop();
+                        while (oper != '(')
                         {
-                            result += stack.ToString() + " ";
-                            stack = operStack.Pop();
+                            result += oper.ToString() + " ";
+                            oper = operStack.Pop();
                         }
                     }
                     else
                     {
-                         isPreviousSignOperator = true;
+                        isPreviousSignOperator = true;
                         if (operStack.Count > 0 &&
                             GetPriority(input[i]) <= GetPriority(operStack.Peek()))
                             result += operStack.Pop() + " ";
@@ -82,10 +80,11 @@ namespace Calculator.Library
             {
                 result += " " + operStack.Pop();
             }
-            return result;
+            error = null;
+            return true;
         }
 
-        private static double CalculateByRPN(string input)
+        private static CalculationResult CalculateByRPN(string input)
         {
             var result = 0.0;
             var number = 0.0;
@@ -96,39 +95,72 @@ namespace Calculator.Library
                 if (double.TryParse(symbols[i], System.Globalization.NumberStyles.Float,
                     System.Globalization.CultureInfo.InvariantCulture, out number))
                     digitStack.Push(number);
-
                 else
                 {
-                    double a = digitStack.Pop();
-                    double b = digitStack.Pop();
-
-                    switch (symbols[i])
+                    if (digitStack.Count() >= 2)
                     {
-                        case "+":
-                            result = b + a;
-                            break;
-                        case "-":
-                            result = b - a;
-                            break;
-                        case "*":
-                            result = b * a;
-                            break;
-                        case "/":
-                            result = b / a;
-                            break;
-                        case "^":
-                            result = Math.Pow(b, a);
-                            break;
+                        double secondArgument = digitStack.Pop();
+                        if (secondArgument == 0 && symbols[i] == "/")
+                            return CalculationResult.CreateError("Division by zero");
+                        double firstArgument = digitStack.Pop();
+
+                        switch (symbols[i])
+                        {
+                            case "+":
+                                result = firstArgument + secondArgument;
+                                break;
+                            case "-":
+                                result = firstArgument - secondArgument;
+                                break;
+                            case "*":
+                                result = firstArgument * secondArgument;
+                                break;
+                            case "/":
+                                result = firstArgument / secondArgument;
+                                break;
+                            case "^":
+                                result = Math.Pow(firstArgument, secondArgument);
+                                break;
+                        }
                     }
+
+                    else
+                        return CalculationResult.CreateError("Invalid notation");
                     digitStack.Push(result);
                 }
             }
-            return digitStack.Peek();
+            return CalculationResult.CreateSuccess(digitStack.Peek());
         }
 
-        public static double Calculate(string input)
+        public static CalculationResult Calculate(string input)
         {
-            return CalculateByRPN(GetReversePolishNotation(input));
+            var validationError = ValidateInput(input);
+            if (validationError != null)
+                return CalculationResult.CreateError(validationError);
+            string rpn;
+            string error;
+            if (!TryGetReversePolishNotation(input, out rpn, out error))
+                return CalculationResult.CreateError(error);
+            return CalculateByRPN(rpn);
         }
+
+        private static string ValidateInput(string input)
+        {
+            if (input.Trim().Count() == 0)
+                return "Empty string";
+
+            if (input.Count(c => c == ')') != input.Count(c => c == '('))
+                return "Invalid notation";
+
+            foreach (var symbol in input)
+            {
+                if (!IsOperator(symbol) && !char.IsDigit(symbol) && !" .,".Contains(symbol))
+                    return "Incorrect symbols";
+
+            }
+            return null;
+        }
+
+        
     }
 }
